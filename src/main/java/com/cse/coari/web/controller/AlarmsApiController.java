@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "api/alarm")
+@RequestMapping(path = "api/alarms")
 public class AlarmsApiController {
     private final AlarmsService alarmsService;
 
