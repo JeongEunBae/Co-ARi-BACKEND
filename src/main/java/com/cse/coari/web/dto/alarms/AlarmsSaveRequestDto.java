@@ -12,16 +12,16 @@ public class AlarmsSaveRequestDto {
     private String content;
     private String author;
     private String send_time;
-    private boolean  is_read;
-    private boolean visibility;
+    private String read_mark;
+    private String visibility;
 
     @Builder
-    public AlarmsSaveRequestDto(String title, String content, String author, String send_time, boolean is_read, boolean visibility) {
+    public AlarmsSaveRequestDto(String title, String content, String author, String send_time, String read_mark, String visibility) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.send_time = send_time;
-        this.is_read = is_read;
+        this.read_mark = read_mark;
         this.visibility = visibility;
     }
 
@@ -31,7 +31,7 @@ public class AlarmsSaveRequestDto {
                 .content(content)
                 .author(author)
                 .send_time(send_time)
-                .is_read(is_read)
+                .read_mark(read_mark)
                 .visibility(visibility)
                 .build();
     }

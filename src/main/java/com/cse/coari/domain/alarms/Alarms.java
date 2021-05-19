@@ -37,20 +37,23 @@ public class Alarms {
     @Column(columnDefinition = "DATETIME", nullable = false)
     private String send_time;
 
-    @Column(columnDefinition = "BOOL")
-    private boolean is_read;
+    private String read_mark;
 
-    @Column(columnDefinition = "BOOL")
-    private boolean visibility;
+    private String visibility;
 
 
     @Builder
-    public Alarms(String title, String content, String author, String send_time, boolean is_read, boolean visibility) {
+    public Alarms(String title, String content, String author, String send_time, String read_mark, String visibility) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.send_time = send_time;
-        this.is_read = is_read;
+        this.read_mark = read_mark;
+        this.visibility = visibility;
+    }
+
+    public void update(String read_mark, String visibility) {
+        this.read_mark = read_mark;
         this.visibility = visibility;
     }
 }

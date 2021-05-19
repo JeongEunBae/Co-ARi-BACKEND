@@ -1,6 +1,6 @@
 {{>layout/header}}
 
-<h1><strong>알림 등록</strong></h1>
+<h1><strong>&nbsp;&nbsp;알림 등록</strong></h1>
 
 <div class="col-md-12">
     <div class="col-md-4">
@@ -22,14 +22,12 @@
                 <input type="text" class="form-control" id="send_time" placeholder="작성 시간을 입력하세요">
             </div>
             <div class="form-group">
-                알림 읽음 표시<br />
-                <input type="radio" name="is_read" value="True" /> True
-                <input type="radio" name="is_read" value="False" checked="checked" /> False
+                <label for="read_mark">알림 읽음 표시</label>
+                <input type="text" class="form-control" id="read_mark" placeholder="알림 읽음 여부를 입력하세요">
             </div>
-            <div class="form-group">
-                알림 보이기<br />
-                <input type="radio" name="visibility" value="Enable" checked="checked"/> Enable
-                <input type="radio" name="visibility" value="Disable" /> Disable
+            <div class="form-grup">
+                <label for="visibility">알림 보이기</label>
+                <input type="text" class="form-control" id="visibility" placeholder="알림 가시성을 입력하세요">
             </div>
         </form>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
