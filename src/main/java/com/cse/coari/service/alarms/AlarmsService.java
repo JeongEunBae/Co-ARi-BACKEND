@@ -49,7 +49,7 @@ public class AlarmsService {
     }
 
     @Transactional
-    public void delete(Long alarm_id) {
+    public void delete(Long alarm_id) { // 해당 알림 삭제
         Alarms alarms = alarmsRepository.findById(alarm_id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 알림이 없습니다. id=" + alarm_id));
 
