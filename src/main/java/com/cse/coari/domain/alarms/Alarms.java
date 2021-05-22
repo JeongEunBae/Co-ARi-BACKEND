@@ -34,7 +34,7 @@ public class Alarms {
     private String author;
 
     // 데이터 형식 변경, null 여부 설정
-    @Column(columnDefinition = "DATETIME", nullable = false)
+    //@Column(columnDefinition = "DATETIME", nullable = false)
     private String send_time;
 
     private String read_mark;
