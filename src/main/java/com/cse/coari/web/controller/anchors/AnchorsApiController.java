@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "api/anchors")
-public class AnchorsApiConroller {
+public class AnchorsApiController {
     private final AnchorsService anchorsService;
 
     @PostMapping
