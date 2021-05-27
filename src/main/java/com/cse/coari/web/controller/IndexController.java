@@ -16,7 +16,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("alarms", alarmsService.findAllDesc());
+//        model.addAttribute("alarms", alarmsService.findAllDesc());
         return "index";
     }
 
