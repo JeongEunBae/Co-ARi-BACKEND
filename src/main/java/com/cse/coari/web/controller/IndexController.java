@@ -12,24 +12,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class IndexController {
 
-    private final AlarmsService alarmsService;
-
     @GetMapping("/")
-    public String index(Model model) {
-//        model.addAttribute("alarms", alarmsService.findAllDesc());
+    public String index() {
         return "index";
     }
 
-    @GetMapping("/alarms/save")
-    public String alarmsSave() {
-        return "alarms-save";
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
-    @GetMapping("/alarms/update/{alarm_id}")
-    public String alarmsUpdate(@PathVariable Long alarm_id, Model model) {
-        AlarmsResponseDto dto = alarmsService.findById(alarm_id);
-        model.addAttribute("alarms", dto);
+    @GetMapping("/room")
+    public String room() {
+        return "room";
+    }
 
-        return "alarms-update";
+    @GetMapping("/alarm")
+    public String alarm() {
+        return "alarm";
+    }
+
+    @GetMapping("/new_admin")
+    public String new_admin() {
+        return "new_admin";
     }
 }
