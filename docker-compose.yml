@@ -1,0 +1,14 @@
+version: "3" # 파일 규격 버전
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
+    db: # 서비스 명
+        image: mysql:8.0.23 # 사용할 이미지
+        container_name: coari-mysql # 컨테이너 이름 설정
+        ports :
+            - "3306:3306" # 접근 포트 설정
+        environment:
+            MYSQL_ROOT_PASSWORD: "coariproject"
+        commannd:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+        volumes:
+            - ./data:/var/lib/mysql
