@@ -29,4 +29,5 @@ public class NoticesApiController {
     public List<NoticesListResponseDto> findAllDesc() {
         return noticesService.findAllDesc();
     }
+
 }

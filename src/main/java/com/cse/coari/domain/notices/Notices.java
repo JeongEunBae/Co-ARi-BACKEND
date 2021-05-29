@@ -19,28 +19,28 @@ public class Notices {
     private Long notice_id;
 
     // 데이터 사이즈 조정, null 여부 설정
-    @Column(length = 500, nullable = false)
+    @Column(nullable = false)
     private String title;
 
-    // 데이터 형식 변경, null 여부 설정
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
+//    // 데이터 형식 변경, null 여부 설정
+//    @Column(columnDefinition = "TEXT")
+//    private String content;
 
     @Column(nullable = false)
     private String author;
 
-    // 데이터 형식 변경, null 여부 설정
-    @Column(columnDefinition = "DATE", nullable = false)
+    //null 여부 설정
+    @Column(nullable = false)
     private String date;
 
     // 데이터 사이즈 조정, null 여부 설정
-    @Column(length = 700, nullable = false)
+    @Column(nullable = false)
     private String url;
 
     @Builder
-    public Notices(String title, String content, String author, String date, String url) {
+    public Notices(String title, /*String content,*/ String author, String date, String url) {
         this.title = title;
-        this.content = content;
+//        this.content = content;
         this.author = author;
         this.date = date;
         this.url = url;
