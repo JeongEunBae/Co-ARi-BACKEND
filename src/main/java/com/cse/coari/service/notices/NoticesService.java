@@ -10,6 +10,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.ObjectUtils;
@@ -51,10 +52,15 @@ public class NoticesService {
 //        }
 //
 //        for(int index = 0; index < titles.size(); index++) {
+////            saveDefaultData(authors[index], titles.get(index), urls.get(index), datetimes[index]);
 //            NoticesSaveRequestDto requestDto = new NoticesSaveRequestDto(titles.get(index), authors[index], datetimes[index], urls.get(index));
-//            noticesRespository.save(requestDto.toEntity());
+//            save(requestDto);
 //        }
 //    }
+//
+////    public Long saveDefaultData(String author_data, String title_data, String url_data, String date_data) {
+////        return noticesRespository.saveDefaultData(author_data, title_data, url_data, date_data);
+////    }
 
     public Long save(NoticesSaveRequestDto requestDto) {
         // 공지사항 등록

@@ -1,12 +1,14 @@
 package com.cse.coari.service.users;
 
-import com.cse.coari.domain.users.Users;
 import com.cse.coari.domain.users.UsersRepository;
-import com.cse.coari.web.dto.users.UsersResponseDto;
+import com.cse.coari.web.dto.users.UsersListResponseDto;
 import com.cse.coari.web.dto.users.UsersSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -19,18 +21,10 @@ public class UsersService {
         return usersRepository.save(requestDto.toEntity()).getUser_id();
     }
 
-    public UsersResponseDto findById(Long user_id) { // 해당 사용자 검색
-        Users entity = usersRepository.findById(user_id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + user_id));
-
-        return new UsersResponseDto(entity);
-    }
-
     @Transactional
-    public void delete(Long user_id) { // 해당 사용자 삭제
-        Users users = usersRepository.findById(user_id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + user_id));
-
-        usersRepository.delete(users);
+    public List<UsersListResponseDto> findByUserID(String userID) { // 사용자 전체 검색
+        return usersRepository.findByUserID(userID).stream()
+                .map(UsersListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }

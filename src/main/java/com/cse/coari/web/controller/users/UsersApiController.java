@@ -1,10 +1,12 @@
 package com.cse.coari.web.controller.users;
 
 import com.cse.coari.service.users.UsersService;
-import com.cse.coari.web.dto.users.UsersResponseDto;
+import com.cse.coari.web.dto.users.UsersListResponseDto;
 import com.cse.coari.web.dto.users.UsersSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -17,14 +19,9 @@ public class UsersApiController {
         return usersService.save(requestDto);
     }
 
-    @GetMapping(value = "/{user_id}")
-    public UsersResponseDto findById(@PathVariable Long user_id) {
-        return usersService.findById(user_id);
-    }
-
-    @DeleteMapping(value = "/{user_id}")
-    public Long delete(@PathVariable Long user_id) {
-        usersService.delete(user_id);
-        return user_id;
+    @GetMapping(value = "/{userID}")
+    public List<UsersListResponseDto> findByUserID(@PathVariable String userID) {
+        System.out.println(userID);
+        return usersService.findByUserID(userID);
     }
 }

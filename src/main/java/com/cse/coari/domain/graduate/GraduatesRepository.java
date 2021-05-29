@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface GraduatesRepository extends JpaRepository<Graduates, Long> {
-    @Query(nativeQuery = true, value = "SELECT * FROM Graduates")
+    @Query(nativeQuery = true, value = "SELECT * FROM graduates")
     List<Graduates> findAll();
 }

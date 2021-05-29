@@ -4,14 +4,14 @@ import com.cse.coari.domain.users.Users;
 import lombok.Getter;
 
 @Getter
-public class UsersResponseDto {
+public class UsersListResponseDto {
     private Long user_id;
     private String id;
     private String password;
     private String kakao_token;
     private String google_token;
 
-    public UsersResponseDto(Users entity) {
+    public UsersListResponseDto(Users entity) {
         this.user_id = entity.getUser_id();
         this.id = entity.getId();
         this.password = entity.getPassword();
