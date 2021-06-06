@@ -10,11 +10,7 @@ var main = {
     save : function () {
 
         var data = {
-<<<<<<< HEAD
             image : $('#image').val(),
-=======
-            Image : $('#Image').val(),
->>>>>>> 75c5d5971e1126c409d892a37f857162241df27e
             name : $('#name').val(),
             interview_content : $('#interview_content').val(),
             company : $('#company').val(),
