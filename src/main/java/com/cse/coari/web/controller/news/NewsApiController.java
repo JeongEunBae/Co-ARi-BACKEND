@@ -7,6 +7,7 @@ import com.cse.coari.web.dto.news.NewsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -28,5 +29,10 @@ public class NewsApiController {
     @GetMapping(value = "/search")
     public List<NewsListResponseDto> findAllDesc() {
         return newsService.findAllDesc();
+    }
+
+    @GetMapping(value = "/crawler")
+    public void newsCrawler() throws IOException { // 크롤링해서 가져오기
+        newsService.newsCrawler();
     }
 }

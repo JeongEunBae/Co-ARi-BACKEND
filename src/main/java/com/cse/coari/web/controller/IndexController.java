@@ -36,4 +36,5 @@ public class IndexController {
     public String new_admin() {
         return "new_admin";
     }
+
 }

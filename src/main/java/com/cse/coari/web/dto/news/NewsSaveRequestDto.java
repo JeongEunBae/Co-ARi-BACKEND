@@ -9,16 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class NewsSaveRequestDto {
     private String title;
-    private String content;
     private String author;
     private String date;
     private String url;
     private String news_thumbnail;
 
     @Builder
-    public NewsSaveRequestDto(String title, String content, String author, String date, String url, String news_thumbnail) {
+    public NewsSaveRequestDto(String title, String author, String date, String url, String news_thumbnail) {
         this.title = title;
-        this.content = content;
         this.author = author;
         this.date = date;
         this.url = url;
@@ -28,7 +26,6 @@ public class NewsSaveRequestDto {
     public News toEntity() {
         return News.builder()
                 .title(title)
-                .content(content)
                 .author(author)
                 .date(date)
                 .url(url)

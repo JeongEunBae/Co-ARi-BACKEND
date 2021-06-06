@@ -32,7 +32,7 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="index.html">Co-ARi<span>.</span></a></h1>
+        <h1 id="colorlib-logo"><a th:href="@{/}">Co-ARi<span>.</span></a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li class="colorlib-active"><a th:href="@{/}">홈</a></li>
@@ -46,6 +46,13 @@
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
             <ul>
                 <li><a th:href="@{/login}"><img src="images/login.png" style="width:10%"/> 로그인</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <br />
+                    <input type="button" id="btn-notice-load" value="공지사항 크롤링"/>
+                    <input type="button" id="btn-news-load" value="학과소식 크롤링"/>
+                </li>
             </ul>
         </div>
     </aside> <!-- END COLORLIB-ASIDE -->
@@ -109,6 +116,7 @@
 <script src="js/app/google-map.js"></script>
 <script src="js/app/main.js"></script>
 <script src="js/app/alarm.js"></script>
+<script src="js/app/realarm.js"></script>
 
 </body>
 </html>

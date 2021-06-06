@@ -1,5 +1,7 @@
 package com.cse.coari.service.news;
 
+import com.cse.coari.crawler.GraduatesCrawler;
+import com.cse.coari.crawler.NewsCrawler;
 import com.cse.coari.domain.news.News;
 import com.cse.coari.domain.news.NewsRepository;
 import com.cse.coari.web.dto.news.NewsListResponseDto;
@@ -9,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +39,24 @@ public class NewsService {
         return newsRepository.findAllDesc().stream()
                 .map(NewsListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    public void newsCrawler() throws IOException { // 학과 학과소식 크롤링
+        NewsCrawler newsCrawler = new NewsCrawler();
+        newsCrawler.crawlingNewsData();
+
+//        GraduatesCrawler graduatesCrawler = new GraduatesCrawler();
+//        graduatesCrawler.crawlingGraduateDataList();
+
+        List<News> newsList = new ArrayList<>();
+        for(int index = 0; index < newsCrawler.getTitles().size(); index++) {
+            NewsSaveRequestDto requestDto = new NewsSaveRequestDto(newsCrawler.getTitles().get(index),
+                    newsCrawler.getAuthors().get(index), newsCrawler.getDates().get(index), newsCrawler.getUrls().get(index),
+                    newsCrawler.getNews_thumbnails().get(index));
+
+            newsList.add(requestDto.toEntity());
+        }
+        newsRepository.saveAll(newsList);
     }
 
 }

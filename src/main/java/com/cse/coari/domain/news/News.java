@@ -22,15 +22,11 @@ public class News {
     @Column(length = 500, nullable = false)
     private String title;
 
-    // 데이터 형식 변경, null 여부 설정
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
-
     @Column(nullable = false)
     private String author;
 
-    // 데이터 형식 변경, null 여부 설정
-    @Column(columnDefinition = "DATE", nullable = false)
+    //  null 여부 설정
+    @Column(nullable = false)
     private String date;
 
     // 데이터 사이즈 조정, null 여부 설정
@@ -38,13 +34,12 @@ public class News {
     private String url;
 
     // 데이터 형식 변경
-    @Column(columnDefinition = "MEDIUMBLOB")
+    @Column(length = 700)
     private String news_thumbnail;
 
     @Builder
-    public News(String title, String content, String author, String date, String url, String news_thumbnail) {
+    public News(String title, String author, String date, String url, String news_thumbnail) {
         this.title = title;
-        this.content = content;
         this.author = author;
         this.date = date;
         this.url = url;

@@ -7,6 +7,7 @@ import com.cse.coari.web.dto.notices.NoticesSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -26,8 +27,14 @@ public class NoticesApiController {
     }
 
     @GetMapping(value = "/search")
-    public List<NoticesListResponseDto> findAllDesc() {
+    public List<NoticesListResponseDto> findAllDesc() throws IOException {
         return noticesService.findAllDesc();
     }
+
+    @GetMapping(value = "/crawler")
+    public void noticeCrawler() throws IOException { // 크롤링해서 가져오기
+        noticesService.noticeCrawler();
+    }
+
 
 }
