@@ -36,7 +36,7 @@
 <div id="colorlib-page">
   <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
   <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-    <h1 id="colorlib-logo"><a href="index.html">Co-ARi<span>.</span></a></h1>
+    <h1 id="colorlib-logo"><a th:href="@{/}">Co-ARi<span>.</span></a></h1>
     <nav id="colorlib-main-menu" role="navigation">
       <ul>
         <li><a th:href="@{/}">홈</a></li>
@@ -62,14 +62,16 @@
         <div class="h2" style="text-align:center; margin-bottom:5%">
           로그인
         </div>
-        <form>
+        <form method="get" action="js/app/loginCheck.js">
           <div>
-            <input style="margin-bottom:3%" type="text" name="email" class="text-field" placeholder="아이디">
+            <input style="margin-bottom:3%" type="text" id="user_id" class="text-field" placeholder="아이디">
           </div>
 
-          <input type="password" name="password" class="text-field" placeholder="비밀번호">
-          <input type="submit" value="로그인" class="submit-btn">
+          <input type="password" id="user_password" class="text-field" placeholder="비밀번호">
+          <input type="button" value="로그인" id="btn-ok">
         </form>
+
+        <div class="wrap"></div>
 
         <div class="links">
           <a th:href="@{/new_admin}" style="text-align:center;">새 관리자 등록</a>
@@ -122,7 +124,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="js/app/google-map.js"></script>
 <script src="js/app/main.js"></script>
-<script src="js/app/alarm.js"></script>
+<script src="js/app/loginCheck.js"></script>
+<script type="text/javascript">
+
+</script>
+
+
 <script type="text/javascript">
     const browseBtn = document.querySelector('.browse-btn');
     const realInput = document.querySelector('#real-input');
