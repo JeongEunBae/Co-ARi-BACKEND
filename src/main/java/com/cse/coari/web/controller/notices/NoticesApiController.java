@@ -27,8 +27,8 @@ public class NoticesApiController {
     }
 
     @GetMapping(value = "/search")
-    public List<NoticesListResponseDto> findAllDesc() throws IOException {
-        return noticesService.findAllDesc();
+    public List<NoticesListResponseDto> findAll() throws IOException {
+        return noticesService.findAll();
     }
 
     @GetMapping(value = "/crawler")

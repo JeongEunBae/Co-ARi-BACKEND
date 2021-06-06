@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface NewsRepository extends JpaRepository<News, Long> { // JpaRepository를 상속 시, 기본적으로 CRUD 기능 지원
 
-    @Query(nativeQuery = true, value = "SELECT * FROM news ORDER BY date DESC")
-    List<News> findAllDesc();
+    @Query(nativeQuery = true, value = "SELECT * FROM news")
+    List<News> findAll();
 }

@@ -36,8 +36,8 @@ public class NoticesService {
     }
 
     @Transactional(readOnly = true)
-    public List<NoticesListResponseDto> findAllDesc() throws IOException { // 공지사항 전체 검색
-        return noticesRespository.findAllDesc().stream()
+    public List<NoticesListResponseDto> findAll() throws IOException { // 공지사항 전체 검색
+        return noticesRespository.findAll().stream()
                 .map(NoticesListResponseDto::new)
                 .collect(Collectors.toList());
 

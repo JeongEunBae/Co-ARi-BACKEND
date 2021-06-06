@@ -10,6 +10,7 @@ public class GraduatesResponseDto {
     private String interview_content;
     private String image;
     private String companyInfo;
+    private String company;
     private String work;
 
     public GraduatesResponseDto(Graduates entity) {
@@ -18,6 +19,7 @@ public class GraduatesResponseDto {
         this.interview_content = entity.getInterview_content();
         this.image = entity.getImage();
         this.companyInfo = entity.getCompanyInfo();
+        this.company = entity.getCompany();
         this.work = entity.getWork();
     }
 }

@@ -37,4 +37,8 @@ public class IndexController {
         return "new_admin";
     }
 
+    @GetMapping("/company")
+    public String company() {
+        return "company";
+    }
 }

@@ -12,14 +12,16 @@ public class GraduatesSaveRequestDto {
     private String interview_content;
     private String image;
     private String companyInfo;
+    private String company;
     private String work;
 
     @Builder
-    public GraduatesSaveRequestDto(String name, String interview_content, String image, String companyInfo, String work) {
+    public GraduatesSaveRequestDto(String name, String interview_content, String image, String companyInfo, String company, String work) {
         this.name = name;
         this.interview_content = interview_content;
         this.image = image;
         this.companyInfo = companyInfo;
+        this.company = company;
         this.work = work;
     }
 
@@ -29,6 +31,7 @@ public class GraduatesSaveRequestDto {
                 .interview_content(interview_content)
                 .image(image)
                 .companyInfo(companyInfo)
+                .company(company)
                 .work(work)
                 .build();
     }

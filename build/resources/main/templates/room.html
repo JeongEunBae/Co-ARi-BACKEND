@@ -34,7 +34,7 @@
 <div id="colorlib-page">
   <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
   <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-    <h1 id="colorlib-logo"><a href="index.html">Co-ARi<span>.</span></a></h1>
+    <h1 id="colorlib-logo"><a th:href="@{/}">Co-ARi<span>.</span></a></h1>
     <nav id="colorlib-main-menu" role="navigation">
       <ul>
         <li><a th:href="@{/}">홈</a></li>
@@ -68,34 +68,29 @@
 
       <form method="post" action="" style="width:60%">
         <div class="mb-4" style="margin-bottom:3%">
-          호실 번호 : <input type="text" name="roomNumber" size="10px"/>
-          호실 이름 : <input type="text" name="roomName" size="20px"/>
+          호실 번호 : <input type="text" id="roomNumber" size="10px"/>
+          호실 이름 : <input type="text" id="roomName" size="20px"/>
         </div>
         <div class="mb-4" style="margin-bottom:3%">
-          호실 정보 : <input type="text" name="roomContent" size="50px"/>
+          호실 정보 : <input type="text" id="roomContent" size="50px"/>
         </div>
         <div class="mb-4" style="margin-bottom:3%">
-          호실 x 좌표: <input type="text" id="pose-x" value="" size="5px" disabled/>
-          호실 y 좌표: <input type="text" id="pose-y" value="" size="5px" disabled/>
+          호실 x 좌표: <input type="text" id="pose_x" value="" size="5px" disabled/>
+          호실 y 좌표: <input type="text" id="pose_y" value="" size="5px" disabled/>
           호실 z 좌표: <input type="text" id="pose_z" value="0.0" size="5px" disabled/>
         </div>
         <div class="mb-4" style="margin-bottom:3%">
-          비디오 ID : <input type="text" id="roomVideo" size="10px"/>
+          비디오 파일 : <input type="text" id="roomVideo" size="10px"/>
           이미지 파일 : <input id="roomImage" type="file" />
         </div>
         <div class="mb-4" style="margin-bottom:3%">
-          복도 x 크기 : <input type="text" id="planeWidthSize" value="" size="5px" />
-          복도 y 크기 : <input type="text" id="planeHeightSize"  value="" size="5px" />
           층수 : <input type="text" id="floor" value="" size="5px" />
-          기준 호실 번호: <input type="text" id="startPoint" value="" size="5px" />
-        </div>
-        <div class="mb-4" style="margin-bottom:3%">
-
           건물 이름 : <input type="text" id="buildingName" size="20px"/>
           소속 장소 : <input type="text" id="department" size="20px"/>
         </div>
         <div class="mb-4" style="margin-bottom:3%;"  align="right">
-          <input type="button" value="Submit" id="btn-save">
+          <input type="button" value="Submit" id="btn-ok">
+          <input type="button" value="새로고침" id="btn-re">
         </div>
 
 
@@ -103,6 +98,7 @@
 
 
       <script>
+
 
           function Init()
 
@@ -136,8 +132,7 @@
               //2. 이미지 태그 생성 <img src="" />
 
               var img = document.createElement("img");
-
-              img.setAttribute("src", "../static/images/andy.png");
+              img.setAttribute("src", "images/andy.png");
 
 
 
@@ -155,8 +150,8 @@
 
               document.body.appendChild(img);
               event.srcElement.style.zIndex = index;
-              document.getElementById('pose-x').value = (event.x-targetLeft);
-              document.getElementById('pose-y').value = (event.y-targetTop);
+              document.getElementById('pose_x').value = (event.x-targetLeft);
+              document.getElementById('pose_y').value = (event.y-targetTop);
 
               index++;
 
@@ -267,7 +262,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="js/app/google-map.js"></script>
 <script src="js/app/main.js"></script>
-<script src="js/app/alarm.js"></script>
+<script src="js/app/room.js"></script>
+<script src="js/app/reroom.js"></script>
 <script type="text/javascript">
     const browseBtn = document.querySelector('.browse-btn');
     const realInput = document.querySelector('#real-input');

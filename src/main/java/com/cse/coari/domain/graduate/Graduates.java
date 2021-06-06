@@ -33,14 +33,19 @@ public class Graduates {
     @Column(length = 300)
     private String companyInfo;
 
+    // 데이터 사이즈 조정
+    @Column(length = 300)
+    private String company;
+
     private String work;
 
     @Builder
-    public Graduates(String name, String interview_content, String image, String companyInfo, String work) {
+    public Graduates(String name, String interview_content, String image, String companyInfo, String company, String work) {
         this.name = name;
         this.interview_content = interview_content;
         this.image = image;
         this.companyInfo = companyInfo;
+        this.company = company;
         this.work = work;
     }
 }
