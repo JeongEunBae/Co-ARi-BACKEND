@@ -5,7 +5,6 @@ var main = {
         $('#btn-graduate-save').on('click', function () {
             _this.save();
         });
-
     },
     save : function () {
 
