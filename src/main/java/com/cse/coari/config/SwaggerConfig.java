@@ -9,7 +9,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-<<<<<<< HEAD
 //@EnableSwagger2
 //@Configuration
 //public class SwaggerConfig {
@@ -21,16 +20,3 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 //                .build();
 //    }
 //}
-=======
-@EnableSwagger2
-@Configuration
-public class SwaggerConfig {
-    @Bean public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.cse.coari"))
-                .paths(PathSelectors.any())
-                .build();
-    }
-}
->>>>>>> 2fd9ec08164543782d25d0af36aa9199e275f978

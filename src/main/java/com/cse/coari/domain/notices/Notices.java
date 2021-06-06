@@ -4,11 +4,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-<<<<<<< HEAD
-=======
-import org.hibernate.annotations.ResultCheckStyle;
-import org.hibernate.annotations.SQLInsert;
->>>>>>> 2fd9ec08164543782d25d0af36aa9199e275f978
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -16,10 +11,8 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-//@Table(name = "notices")
 @NoArgsConstructor
 @Component
-//@SQLInsert(sql = "INSERT INTO notices(author, title, url, date) VAULES(?, ?, ?, ?)", check = ResultCheckStyle.COUNT)
 public class Notices {
 
     // Primary KEY 지정
