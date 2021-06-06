@@ -42,6 +42,7 @@
         <li><a th:href="@{/}">홈</a></li>
         <li><a th:href="@{/alarm}">알람 전송</a></li>
         <li><a th:href="@{/room}">건물 인식</a></li>
+        <li><a th:href="@{/company}">졸업 명예의 전당</a></li>
       </ul>
     </nav>
 
@@ -53,6 +54,13 @@
           </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
       <ul>
         <li><a th:href="@{/login}"><img src="images/login.png" style="width:10%"/> 로그인</a></li>
+      </ul>
+      <ul>
+        <li>
+          <br />
+          <input type="button" id="btn-notice-load" value="공지사항 크롤링"/>
+          <input type="button" id="btn-news-load" value="학과소식 크롤링"/>
+        </li>
       </ul>
     </div>
   </aside> <!-- END COLORLIB-ASIDE -->

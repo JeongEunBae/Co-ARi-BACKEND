@@ -35,8 +35,8 @@ public class NewsService {
     }
 
     @Transactional(readOnly = true)
-    public List<NewsListResponseDto> findAllDesc() { // 학과소식 전체 검색
-        return newsRepository.findAllDesc().stream()
+    public List<NewsListResponseDto> findAll() { // 학과소식 전체 검색
+        return newsRepository.findAll().stream()
                 .map(NewsListResponseDto::new)
                 .collect(Collectors.toList());
     }

@@ -10,6 +10,7 @@ public class NewsListResponseDto {
     private String author;
     private String date;
     private String news_thumbnail;
+    private String url;
 
     public NewsListResponseDto(News entity) {
         this.news_id = entity.getNews_id();
@@ -17,6 +18,7 @@ public class NewsListResponseDto {
         this.author = entity.getAuthor();
         this.date = entity.getDate();
         this.news_thumbnail = entity.getNews_thumbnail();
+        this.url = entity.getUrl();
 
     }
 }

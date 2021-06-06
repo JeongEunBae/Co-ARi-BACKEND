@@ -27,8 +27,8 @@ public class NewsApiController {
     }
 
     @GetMapping(value = "/search")
-    public List<NewsListResponseDto> findAllDesc() {
-        return newsService.findAllDesc();
+    public List<NewsListResponseDto> findAll() {
+        return newsService.findAll();
     }
 
     @GetMapping(value = "/crawler")
