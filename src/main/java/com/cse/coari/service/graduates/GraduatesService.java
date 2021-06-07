@@ -5,6 +5,7 @@ import com.cse.coari.domain.graduate.GraduatesRepository;
 import com.cse.coari.web.dto.graduates.GraduatesListResponseDto;
 import com.cse.coari.web.dto.graduates.GraduatesResponseDto;
 import com.cse.coari.web.dto.graduates.GraduatesSaveRequestDto;
+import com.google.api.client.util.Value;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,20 +19,24 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class GraduatesService {
-    private static final String FILE_SERVER_PATH = "http://co-ari.o-r.kr:8080/fileData";
+    private static final String FILE_SERVER_PATH = "file:///home/wjddms0922/fileData/";
+
+    @Value("${ImageFilePath}")
+    private String filePath;
+
     private final GraduatesRepository graduatesRepository;
 
     @Transactional
-    public Long save(GraduatesSaveRequestDto requestDto, MultipartFile file) throws IOException {
+    public Long save(GraduatesSaveRequestDto requestDto/*, MultipartFile file*/)  {
         // 졸업생 명예의 전당 등록 & 파일 전송
-        String fileName = file.getOriginalFilename();
-        requestDto.setFileName(fileName);
-        requestDto.setFileType(file.getContentType());
-        requestDto.setFileURL(FILE_SERVER_PATH + fileName);
-
-        if(!file.getOriginalFilename().isEmpty()) {
-            file.transferTo(new File(FILE_SERVER_PATH, file.getOriginalFilename()));
-        }
+//        String fileName = file.getOriginalFilename();
+//        requestDto.setFileName(fileName);
+//        requestDto.setFileType(file.getContentType());
+//        requestDto.setFileURL(FILE_SERVER_PATH + fileName);
+//
+//        if(!file.getOriginalFilename().isEmpty()) {
+//            file.transferTo(new File(FILE_SERVER_PATH, file.getOriginalFilename()));
+//        }
 
         return graduatesRepository.save(requestDto.toEntity()).getGraduate_id();
     }

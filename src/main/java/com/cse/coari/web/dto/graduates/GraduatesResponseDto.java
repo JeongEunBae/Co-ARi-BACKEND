@@ -9,8 +9,8 @@ public class GraduatesResponseDto {
     private String name;
     private String interview_content;
     private String fileURL;
-    private String fileType;
-    private String fileName;
+//    private String fileType;
+//    private String fileName;
     private String companyInfo;
     private String company;
     private String work;
@@ -20,8 +20,8 @@ public class GraduatesResponseDto {
         this.name = entity.getName();
         this.interview_content = entity.getInterview_content();
         this.fileURL = entity.getFileURL();
-        this.fileName = entity.getFileName();
-        this.fileType = entity.getFileType();
+//        this.fileName = entity.getFileName();
+//        this.fileType = entity.getFileType();
         this.companyInfo = entity.getCompanyInfo();
         this.company = entity.getCompany();
         this.work = entity.getWork();

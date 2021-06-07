@@ -19,10 +19,10 @@ public class GraduatesApiController {
     private final GraduatesService graduatesService;
 
     @PostMapping
-    public Long save(@RequestPart(value = "key") GraduatesSaveRequestDto requestDto
-            , @RequestPart(value = "file") MultipartFile file)
-            throws IOException {
-        return graduatesService.save(requestDto, file);
+    public Long save(@RequestBody GraduatesSaveRequestDto requestDto/*@RequestPart(value = "key") GraduatesSaveRequestDto requestDto
+            , @RequestPart(value = "file") MultipartFile file*/)
+    {
+        return graduatesService.save(requestDto/*, file*/);
     }
 
     @GetMapping(value = "/{graduate_id}")

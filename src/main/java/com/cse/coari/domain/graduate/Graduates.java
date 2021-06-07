@@ -30,32 +30,34 @@ public class Graduates {
 //    @Column(columnDefinition = "MEDIUMBLOB")
 //    private MultipartFile file;
 
+    @Column(columnDefinition = "TEXT")
     private String fileURL;
 
-    private String fileType;
-
-    private String fileName;
+//    private String fileType;
+//
+//    private String fileName;
 
     // 데이터 사이즈 조정
-    @Column(length = 300)
+    @Column(columnDefinition = "TEXT")
     private String companyInfo;
 
     // 데이터 사이즈 조정
-    @Column(length = 300)
+    @Column(columnDefinition = "TEXT")
     private String company;
 
+    @Column(columnDefinition = "TEXT")
     private String work;
 
     @Builder
-    public Graduates(String name, String interview_content, /*MultipartFile file,*/ String fileURL, String fileType, String fileName, String companyInfo, String company, String work) {
+    public Graduates(String name, String interview_content, String companyInfo, String company, String work, String fileURL) {
         this.name = name;
         this.interview_content = interview_content;
 //        this.file = file;
-        this.fileURL = fileURL;
-        this.fileType = fileType;
-        this.fileName = fileName;
+//        this.fileType = fileType;
+//        this.fileName = fileName;
         this.companyInfo = companyInfo;
         this.company = company;
         this.work = work;
+        this.fileURL = fileURL;
     }
 }

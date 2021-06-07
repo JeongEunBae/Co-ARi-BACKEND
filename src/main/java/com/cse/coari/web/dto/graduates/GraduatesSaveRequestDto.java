@@ -13,32 +13,35 @@ import org.springframework.web.multipart.MultipartFile;
 public class GraduatesSaveRequestDto {
     private String name;
     private String interview_content;
-    private String fileURL;
-    private String fileType;
-    private String fileName;
+//    private String fileType;
+//    private String fileName;
     private String companyInfo;
     private String company;
     private String work;
+    private String fileURL;
 
     @Builder
-    public GraduatesSaveRequestDto(String name, String interview_content, String companyInfo, String company, String work) {
+    public GraduatesSaveRequestDto(String name, String interview_content, String companyInfo, String company, String work, String fileURL) {
         this.name = name;
         this.interview_content = interview_content;
         this.companyInfo = companyInfo;
         this.company = company;
         this.work = work;
+        this.fileURL = fileURL;
     }
 
     public Graduates toEntity() {
         return Graduates.builder()
                 .name(name)
                 .interview_content(interview_content)
-                .fileURL(fileURL)
-                .fileType(fileType)
-                .fileName(fileName)
                 .companyInfo(companyInfo)
                 .company(company)
                 .work(work)
+                .fileURL(fileURL)
                 .build();
+
+//                .fileType(fileType)
+//                .fileName(fileName)
+
     }
 }
