@@ -8,18 +8,31 @@ import com.cse.coari.web.dto.graduates.GraduatesSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.web.multipart.MultipartFile;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @RequiredArgsConstructor
 @Service
 public class GraduatesService {
+    private static final String FILE_SERVER_PATH = "/home/wjddms0922/fileData";
     private final GraduatesRepository graduatesRepository;
 
     @Transactional
-    public Long save(GraduatesSaveRequestDto requestDto) {
-        // 졸업생 명예의 전당 등록
+    public Long save(GraduatesSaveRequestDto requestDto, MultipartFile file) throws IOException {
+        // 졸업생 명예의 전당 등록 & 파일 전송
+        String fileName = file.getOriginalFilename();
+        requestDto.setFileName(fileName);
+        requestDto.setFileType(file.getContentType());
+        requestDto.setFileURL(FILE_SERVER_PATH + fileName);
+
+        if(!file.getOriginalFilename().isEmpty()) {
+            file.transferTo(new File(FILE_SERVER_PATH, file.getOriginalFilename()));
+        }
+
         return graduatesRepository.save(requestDto.toEntity()).getGraduate_id();
     }
 

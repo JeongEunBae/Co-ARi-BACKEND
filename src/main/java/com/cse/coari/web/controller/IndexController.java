@@ -1,12 +1,12 @@
 package com.cse.coari.web.controller;
 
-import com.cse.coari.service.alarms.AlarmsService;
-import com.cse.coari.web.dto.alarms.AlarmsResponseDto;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+        import com.cse.coari.service.alarms.AlarmsService;
+        import com.cse.coari.web.dto.alarms.AlarmsResponseDto;
+        import lombok.RequiredArgsConstructor;
+        import org.springframework.stereotype.Controller;
+        import org.springframework.ui.Model;
+        import org.springframework.web.bind.annotation.GetMapping;
+        import org.springframework.web.bind.annotation.PathVariable;
 
 @RequiredArgsConstructor
 @Controller

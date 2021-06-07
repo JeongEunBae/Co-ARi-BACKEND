@@ -60,22 +60,9 @@ public class Anchors {
     @Column(nullable = false)
     private String floor;
 
-    // null 여부 설정
-    @Column(nullable = false)
-    private String startPoint;
-
-    // null 여부 설정
-    @Column(nullable = false)
-    private String planeWidthSize;
-
-    // null 여부 설정
-    @Column(nullable = false)
-    private String planeHeightSize;
-
     @Builder
     public Anchors(String roomNumber, String roomName, String roomContent, String roomImage, String roomVideo,
-                   String pose_x, String pose_y, String pose_z, String department, String buildingName, String floor,
-                   String startPoint, String planeWidthSize, String planeHeightSize) {
+                   String pose_x, String pose_y, String pose_z, String department, String buildingName, String floor) {
         this.roomNumber = roomNumber;
         this.roomName = roomName;
         this.roomContent = roomContent;
@@ -87,9 +74,6 @@ public class Anchors {
         this.department = department;
         this.buildingName = buildingName;
         this.floor = floor;
-        this.startPoint = startPoint;
-        this.planeWidthSize = planeWidthSize;
-        this.planeHeightSize = planeHeightSize;
     }
 
     public void update(String roomName, String roomContent, String roomImage, String roomVideo,

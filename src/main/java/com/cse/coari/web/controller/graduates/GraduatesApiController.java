@@ -7,7 +7,9 @@ import com.cse.coari.web.dto.graduates.GraduatesResponseDto;
 import com.cse.coari.web.dto.graduates.GraduatesSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -17,8 +19,10 @@ public class GraduatesApiController {
     private final GraduatesService graduatesService;
 
     @PostMapping
-    public Long save(@RequestBody GraduatesSaveRequestDto requestDto) {
-        return graduatesService.save(requestDto);
+    public Long save(@RequestPart(value = "key") GraduatesSaveRequestDto requestDto
+            , @RequestPart(value = "file") MultipartFile file)
+            throws IOException {
+        return graduatesService.save(requestDto, file);
     }
 
     @GetMapping(value = "/{graduate_id}")
@@ -30,4 +34,5 @@ public class GraduatesApiController {
     public List<GraduatesListResponseDto> findAll() {
         return graduatesService.findAll();
     }
+
 }

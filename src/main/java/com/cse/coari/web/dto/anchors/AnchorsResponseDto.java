@@ -18,9 +18,6 @@ public class AnchorsResponseDto {
     private String department;
     private String buildingName;
     private String floor;
-    private String startPoint;
-    private String planeWidthSize;
-    private String planeHeightSize;
 
     public AnchorsResponseDto(Anchors entity) {
         this.anchor_id = entity.getAnchor_id();
@@ -35,8 +32,5 @@ public class AnchorsResponseDto {
         this.department = entity.getDepartment();
         this.buildingName = entity.getBuildingName();
         this.floor = entity.getFloor();
-        this.startPoint = entity.getStartPoint();
-        this.planeWidthSize = entity.getPlaneWidthSize();
-        this.planeHeightSize = entity.getPlaneHeightSize();
     }
 }
