@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class GraduatesService {
-    private static final String FILE_SERVER_PATH = "/home/wjddms0922/fileData";
+    private static final String FILE_SERVER_PATH = "http://co-ari.o-r.kr:8080/fileData";
     private final GraduatesRepository graduatesRepository;
 
     @Transactional
