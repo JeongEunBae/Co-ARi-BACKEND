@@ -15,15 +15,13 @@ var main = {
             buildingName : $('#buildingName').val(),
             floor : $('#floor').val()
         };
-        alert("dddf");
+
         var form = $('#anchorForm')[0];
 
         var formData = new FormData(form);
         formData.append('key', new Blob([JSON.stringify(data)], {type: "application/json"}));
 
         formData.append('file', document.getElementById('roomVideo').files[0]);
-        alert(formData.get('key'));
-
 
         $.ajax({
             type: 'POST',
