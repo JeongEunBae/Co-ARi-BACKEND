@@ -2,10 +2,14 @@ package com.cse.coari.service.alarms;
 
 import com.cse.coari.domain.alarms.Alarms;
 import com.cse.coari.domain.alarms.AlarmsRepository;
+import com.cse.coari.util.FcmUtil;
 import com.cse.coari.web.dto.alarms.AlarmsListResponseDto;
 import com.cse.coari.web.dto.alarms.AlarmsResponseDto;
 import com.cse.coari.web.dto.alarms.AlarmsSaveRequestDto;
 import com.cse.coari.web.dto.alarms.AlarmsUpdateRequestDto;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingException;
+import com.google.firebase.messaging.Message;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +25,10 @@ public class AlarmsService {
     @Transactional
     public Long save(AlarmsSaveRequestDto requestDto) {
         // 알림 등록
+
+        FcmUtil fcmUtil = new FcmUtil();
+        fcmUtil.sendFCM(requestDto.getTitle(), requestDto.getContent());
+
         return alarmsRepository.save(requestDto.toEntity()).getAlarm_id();
     }
 
@@ -42,9 +50,9 @@ public class AlarmsService {
     }
 
     @Transactional(readOnly = true)
-    public List<AlarmsListResponseDto> findAllDesc() { // 알림 전체 검색
+    public List<AlarmsResponseDto> findAllDesc() { // 알림 전체 검색
         return alarmsRepository.findAllDesc().stream()
-                .map(AlarmsListResponseDto::new)
+                .map(AlarmsResponseDto::new)
                 .collect(Collectors.toList());
     }
 
@@ -55,4 +63,5 @@ public class AlarmsService {
 
         alarmsRepository.delete(alarms);
     }
+
 }

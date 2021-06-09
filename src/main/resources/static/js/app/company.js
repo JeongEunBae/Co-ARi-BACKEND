@@ -1,38 +1,27 @@
 var main = {
 
     init : function () {
+        alert("ddd");
         var _this = this;
-        $('#btn-graduate-save').on('click', function () {
+        $('#btn-anchor-save').on('click', function () {
             _this.save();
         });
     },
     save : function () {
 
         var data = {
-            name : $('#name').val(),
-            interview_content : $('#interview_content').val(),
-            company : $('#company').val(),
-            companyInfo : $('#companyInfo').val(),
-            work : $('#work').val(),
-            fileURL : $('#fileURL').val()
+                    roomNumber : $('#roomNumber').val(),
+                    roomName : $('#roomName').val(),
+                    roomContent : $('#roomContent').val(),
+                    pose : $('#pose_x').val() + ":" + $('#pose_y').val() ":" + $('#pose_z').val(),
+                    department : $('#department').val(),
+                    buildingName : $('#buildingName').val(),
+                    floor : $('#floor').val()
         };
-
-//        var form = $('#graduateForm')[0];
-//
-//        var formData = new FormData(form);
-////        var blob = new Blob()
-//        formData.append('key', new Blob([JSON.stringify(data)], {type: "application/json"}));
-////        formData.append('key', new Blob([JSON.stringify(data)], {type: "application/json"});
-////        formData.append('file', $('#image'));
-//        formData.append('file', document.getElementById('image').files[0])
-//        alert(formData.get('key'));
 
          $.ajax({
              type: 'POST',
              url: '/api/graduates',
-//             processData: false,
-//             contentType: false,
-//             data: formData
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)

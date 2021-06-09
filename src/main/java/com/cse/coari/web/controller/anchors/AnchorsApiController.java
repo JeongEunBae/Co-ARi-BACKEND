@@ -6,7 +6,9 @@ import com.cse.coari.web.dto.anchors.AnchorsSaveRequestDto;
 import com.cse.coari.web.dto.anchors.AnchorsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -16,8 +18,9 @@ public class AnchorsApiController {
     private final AnchorsService anchorsService;
 
     @PostMapping
-    public Long save(@RequestBody AnchorsSaveRequestDto requestDto) {
-        return anchorsService.save(requestDto);
+    public Long save(@RequestPart(value = "key") AnchorsSaveRequestDto requestDto
+            , @RequestPart(value = "file") MultipartFile file) throws IOException {
+        return anchorsService.save(requestDto, file);
     }
 
     @GetMapping(value = "/{anchor_id}")

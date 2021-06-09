@@ -74,7 +74,7 @@
         <img src="" id="output">
       </div>
 
-      <form method="post" action="" style="width:60%">
+      <form id = "anchorForm" method="post" action="" enctype="multipart/form-data" style="width:60%;">
         <div class="mb-4" style="margin-bottom:3%">
           호실 번호 : <input type="text" id="roomNumber" size="10px"/>
           호실 이름 : <input type="text" id="roomName" size="20px"/>
@@ -89,7 +89,6 @@
         </div>
         <div class="mb-4" style="margin-bottom:3%">
           비디오 파일 : <input type="file" id="roomVideo" size="10px"/>
-          이미지 파일 : <input id="roomImage" type="file" />
         </div>
         <div class="mb-4" style="margin-bottom:3%">
           층수 : <input type="text" id="floor" value="" size="5px" />
@@ -97,7 +96,8 @@
           소속 장소 : <input type="text" id="department" size="20px"/>
         </div>
         <div class="mb-4" style="margin-bottom:3%;"  align="right">
-          <input type="button" value="Submit" id="btn-ok">
+<!--          <input type="button" value="Submit" id="btn-anchor-save">-->
+          <input type="button" value="Submit" id="btn-anchor-save">
           <input type="button" value="새로고침" id="btn-re">
         </div>
       </form>
@@ -217,7 +217,7 @@
             }
             reader.readAsDataURL(file);
           }
-        </script>
+      </script>
     </section>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container px-md-5">
@@ -264,7 +264,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="js/app/google-map.js"></script>
 <script src="js/app/main.js"></script>
-<script src="js/app/room.js"></script>
+<script src="js/app/company.js"></script>
 <script src="js/app/reroom.js"></script>
 <script type="text/javascript">
     const browseBtn = document.querySelector('.browse-btn');
@@ -281,7 +281,7 @@
 
         var files = e.target.files;
         var fileArr = Array.prototype.slice.call(files);
-        var index = 0;
+        vr index = 0;
 
         fileArr.forEach(function(f) {
           if (!f.type.match("image/.*")) {

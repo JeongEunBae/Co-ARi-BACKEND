@@ -11,4 +11,7 @@ public interface AlarmsRepository extends JpaRepository<Alarms, Long> {// JpaRep
 
     @Query(nativeQuery = true, value = "SELECT * FROM alarms ORDER BY send_time DESC")
     List<Alarms> findAllDesc();
+
+    @Query(nativeQuery = true, value = "SELECT * FROM alarms ORDER BY send_time DESC LIMIT 1")
+    Alarms findDescRecent();
 }

@@ -39,7 +39,8 @@
       <ul>
         <li><a th:href="@{/}">홈</a></li>
         <li><a th:href="@{/alarm}">알람 전송</a></li>
-        <li class="colorlib-active"><a th:href="@{/room}">건물 인식</a></li>
+        <li class="colorlib-active"><a th:href="@{/room}">건물 인식</a>
+        <li><a th:href="@{/company}">졸업 명예의 전당</a></li>
       </ul>
     </nav>
 
@@ -51,6 +52,13 @@
           </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
       <ul>
         <li><a th:href="@{/login}"><img src="images/login.png" style="width:10%"/> 로그인</a></li>
+      </ul>
+      <ul>
+        <li>
+          <br />
+          <input type="button" id="btn-notice-load" value="공지사항 크롤링"/>
+          <input type="button" id="btn-news-load" value="학과소식 크롤링"/>
+        </li>
       </ul>
     </div>
   </aside> <!-- END COLORLIB-ASIDE -->
@@ -66,7 +74,7 @@
         <img src="" id="output">
       </div>
 
-      <form method="post" action="" style="width:60%">
+      <form id = "anchorForm" method="post" action="" enctype="multipart/form-data" style="width:60%;">
         <div class="mb-4" style="margin-bottom:3%">
           호실 번호 : <input type="text" id="roomNumber" size="10px"/>
           호실 이름 : <input type="text" id="roomName" size="20px"/>
@@ -80,8 +88,7 @@
           호실 z 좌표: <input type="text" id="pose_z" value="0.0" size="5px" disabled/>
         </div>
         <div class="mb-4" style="margin-bottom:3%">
-          비디오 파일 : <input type="text" id="roomVideo" size="10px"/>
-          이미지 파일 : <input id="roomImage" type="file" />
+          비디오 파일 : <input type="file" id="roomVideo" size="10px"/>
         </div>
         <div class="mb-4" style="margin-bottom:3%">
           층수 : <input type="text" id="floor" value="" size="5px" />
@@ -89,17 +96,12 @@
           소속 장소 : <input type="text" id="department" size="20px"/>
         </div>
         <div class="mb-4" style="margin-bottom:3%;"  align="right">
-          <input type="button" value="Submit" id="btn-ok">
+<!--          <input type="button" value="Submit" id="btn-anchor-save">-->
+          <input type="button" value="Submit" id="btn-anchor-save">
           <input type="button" value="새로고침" id="btn-re">
         </div>
-
-
       </form>
-
-
       <script>
-
-
           function Init()
 
           {
@@ -215,7 +217,7 @@
             }
             reader.readAsDataURL(file);
           }
-        </script>
+      </script>
     </section>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container px-md-5">
@@ -262,7 +264,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="js/app/google-map.js"></script>
 <script src="js/app/main.js"></script>
-<script src="js/app/room.js"></script>
+<script src="js/app/company.js"></script>
 <script src="js/app/reroom.js"></script>
 <script type="text/javascript">
     const browseBtn = document.querySelector('.browse-btn');
@@ -279,7 +281,7 @@
 
         var files = e.target.files;
         var fileArr = Array.prototype.slice.call(files);
-        var index = 0;
+        vr index = 0;
 
         fileArr.forEach(function(f) {
           if (!f.type.match("image/.*")) {

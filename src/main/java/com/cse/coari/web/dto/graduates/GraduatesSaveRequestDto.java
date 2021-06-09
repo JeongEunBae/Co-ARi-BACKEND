@@ -13,8 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class GraduatesSaveRequestDto {
     private String name;
     private String interview_content;
-//    private String fileType;
-//    private String fileName;
     private String companyInfo;
     private String company;
     private String work;
@@ -39,9 +37,6 @@ public class GraduatesSaveRequestDto {
                 .work(work)
                 .fileURL(fileURL)
                 .build();
-
-//                .fileType(fileType)
-//                .fileName(fileName)
 
     }
 }

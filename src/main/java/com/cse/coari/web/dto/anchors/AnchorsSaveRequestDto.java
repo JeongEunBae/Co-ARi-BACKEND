@@ -4,33 +4,30 @@ import com.cse.coari.domain.anchors.Anchors;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+@Setter
 @Getter
 @NoArgsConstructor
 public class AnchorsSaveRequestDto {
     private String roomNumber;
     private String roomName;
     private String roomContent;
-    private String roomImage;
     private String roomVideo;
-    private String pose_x;
-    private String pose_y;
-    private String pose_z;
+    private String pose;
     private String department;
     private String buildingName;
     private String floor;
 
     @Builder
-    public AnchorsSaveRequestDto(String roomNumber, String roomName, String roomContent, String roomImage, String roomVideo,
-    String pose_x, String pose_y, String pose_z, String department, String buildingName, String floor) {
+    public AnchorsSaveRequestDto(String roomNumber, String roomName, String roomContent, String roomVideo,
+    String pose, String department, String buildingName, String floor) {
         this.roomNumber = roomNumber;
         this.roomName = roomName;
         this.roomContent = roomContent;
-        this.roomImage = roomImage;
         this.roomVideo = roomVideo;
-        this.pose_x = pose_x;
-        this.pose_y = pose_y;
-        this.pose_z = pose_z;
+        this.pose = pose;
         this.department = department;
         this.buildingName = buildingName;
         this.floor = floor;
@@ -41,11 +38,8 @@ public class AnchorsSaveRequestDto {
                 .roomNumber(roomNumber)
                 .roomName(roomName)
                 .roomContent(roomContent)
-                .roomImage(roomImage)
                 .roomVideo(roomVideo)
-                .pose_x(pose_x)
-                .pose_y(pose_y)
-                .pose_z(pose_z)
+                .pose(pose)
                 .department(department)
                 .buildingName(buildingName)
                 .floor(floor)

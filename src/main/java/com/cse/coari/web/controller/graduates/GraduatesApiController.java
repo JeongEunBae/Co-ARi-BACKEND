@@ -19,10 +19,9 @@ public class GraduatesApiController {
     private final GraduatesService graduatesService;
 
     @PostMapping
-    public Long save(@RequestBody GraduatesSaveRequestDto requestDto/*@RequestPart(value = "key") GraduatesSaveRequestDto requestDto
-            , @RequestPart(value = "file") MultipartFile file*/)
+    public Long save(@RequestBody GraduatesSaveRequestDto requestDto)
     {
-        return graduatesService.save(requestDto/*, file*/);
+        return graduatesService.save(requestDto);
     }
 
     @GetMapping(value = "/{graduate_id}")

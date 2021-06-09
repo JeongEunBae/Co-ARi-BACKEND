@@ -5,6 +5,8 @@ import com.cse.coari.web.dto.alarms.AlarmsListResponseDto;
 import com.cse.coari.web.dto.alarms.AlarmsResponseDto;
 import com.cse.coari.web.dto.alarms.AlarmsSaveRequestDto;
 import com.cse.coari.web.dto.alarms.AlarmsUpdateRequestDto;
+import com.google.firebase.messaging.FirebaseMessagingException;
+import com.google.firebase.messaging.Message;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +29,7 @@ public class AlarmsApiController {
     }
 
     @GetMapping(value = "/search")
-    public List<AlarmsListResponseDto> findAllDesc() {
+    public List<AlarmsResponseDto> findAllDesc() {
         return alarmsService.findAllDesc();
     }
 
