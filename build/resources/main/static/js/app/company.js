@@ -1,27 +1,25 @@
 var main = {
-
     init : function () {
-        alert("ddd");
         var _this = this;
         $('#btn-anchor-save').on('click', function () {
             _this.save();
         });
     },
     save : function () {
-
         var data = {
                     roomNumber : $('#roomNumber').val(),
                     roomName : $('#roomName').val(),
                     roomContent : $('#roomContent').val(),
-                    pose : $('#pose_x').val() + ":" + $('#pose_y').val() ":" + $('#pose_z').val(),
+                    pose : ,
                     department : $('#department').val(),
                     buildingName : $('#buildingName').val(),
                     floor : $('#floor').val()
         };
+        alert(JSON.stringify(data));
 
          $.ajax({
              type: 'POST',
-             url: '/api/graduates',
+             url: '/api/anchors',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)

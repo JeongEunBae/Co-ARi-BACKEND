@@ -6,19 +6,18 @@ var main = {
         });
     },
     save : function () {
-
         var data = {
             roomNumber : $('#roomNumber').val(),
             roomName : $('#roomName').val(),
             roomContent : $('#roomContent').val(),
-            pose : $('#pose_x').val() + ":" + $('#pose_y').val() ":" + $('#pose_z').val(),
+            pose : $('#pose_x').val(),
             department : $('#department').val(),
             buildingName : $('#buildingName').val(),
             floor : $('#floor').val()
         };
-
+        alert("dddf");
         var form = $('#anchorForm')[0];
-        //
+
         var formData = new FormData(form);
         ////        var blob = new Blob()
         formData.append('key', new Blob([JSON.stringify(data)], {type: "application/json"}));
